@@ -4,76 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assistir Live</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background-color: #121212;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
-
-    input[type="text"] {
-      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-      width: 70%;
-      border-radius: 50px 0px 0px 50px;
-      border: none;
-      margin-left: auto;
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-      background-color: rgba(225, 0, 45, 0.9);
-      border:none;
-      color: white;
-      border-radius: 0px 50px 50px 0px;
-      cursor: pointer;
-      margin-right: auto;
-    }
-
-    .content {
-      display: flex;
-      height: 100%;
-      width: 100%;
-      flex-direction: row;
-    }
-
-    .video-container {
-      flex: 1;
-      height: 100%;
-    }
-
-    .video-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .chat-container {
-      width: 25%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      background-color: #f1f1f1;
-    }
-
-    .chat-controls {
-      padding: 1rem;
-      background-color: #000;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
-    .chat-container iframe {
-      width: 100%;
-      flex: 1;
-      border: none;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style/live.css" media="screen"/>
+  <script src="script/live.js"></script>
 </head>
 <body>
   <div class="content">
@@ -88,34 +20,5 @@
       <iframe id="chatFrame" src="" allowfullscreen></iframe>
     </div>
   </div>
-
-  <script>
-    function extrairVideoID(url) {
-      const regex = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-      const match = url.match(regex);
-      return match ? match[1] : null;
-    }
-
-    function irParaLive() {
-      const url = document.getElementById('liveUrl').value;
-      const videoId = extrairVideoID(url);
-      if (videoId) {
-        window.location.href = `live.html?v=${videoId}`;
-      } else {
-        alert("Link inválido! Cole um link de live do YouTube válido.");
-      }
-    }
-
-    function carregarVideoDaURL() {
-      const params = new URLSearchParams(window.location.search);
-      const videoId = params.get('v');
-      if (videoId) {
-        document.getElementById('liveFrame').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
-        document.getElementById('chatFrame').src = `https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${window.location.hostname}`;
-      }
-    }
-
-    window.onload = carregarVideoDaURL;
-  </script>
 </body>
 </html>

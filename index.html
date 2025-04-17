@@ -4,38 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assistir Live</title>
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #121212;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
-    .form-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-    }
-    input[type="text"] {
-      padding: 0.5rem;
-      width: 300px;
-      border-radius: 5px;
-      border: none;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      background-color: #ff0000;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style/index.css" media="screen"/>
+  <script src="script/index.js"></script>
 </head>
 <body>
   <div class="form-container">
@@ -43,23 +13,5 @@
     <input type="text" id="liveUrl" placeholder="Cole o link da live do YouTube aqui">
     <button onclick="irParaLive()">Assistir</button>
   </div>
-
-  <script>
-    function extrairVideoID(url) {
-      const regex = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-      const match = url.match(regex);
-      return match ? match[1] : null;
-    }
-
-    function irParaLive() {
-      const url = document.getElementById('liveUrl').value;
-      const videoId = extrairVideoID(url);
-      if (videoId) {
-        window.location.href = `live.html?v=${videoId}`;
-      } else {
-        alert("Link inválido! Cole um link de live do YouTube válido.");
-      }
-    }
-  </script>
 </body>
 </html>

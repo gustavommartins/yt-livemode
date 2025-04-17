@@ -1,0 +1,68 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+
+  input[type="text"] {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    width: 70%;
+    border-radius: 50px 0px 0px 50px;
+    border: none;
+    margin-left: auto;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: rgba(225, 0, 45, 0.9);
+    border:none;
+    color: white;
+    border-radius: 0px 50px 50px 0px;
+    cursor: pointer;
+    margin-right: auto;
+  }
+
+  .content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .video-container {
+    flex: 1;
+    height: 100%;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .chat-container {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1;
+  }
+
+  .chat-controls {
+    padding: 1rem;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .chat-container iframe {
+    width: 100%;
+    flex: 1;
+    border: none;
+  }
